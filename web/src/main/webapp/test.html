@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>图片轮换</title>
+
+</head>
+<body>
+<img src="https://djjy.nefu.edu.cn/images/1920x655.jpg" id="image" width="100%" height="400px" >
+</body>
+<script>
+    var arr=new Array()
+    arr[0]="https://djjy.nefu.edu.cn/images/1920x655.jpg";
+    arr[1]="https://dtl.nefu.edu.cn/images/banner.jpg";
+    arr[2]="https://news.nefu.edu.cn/xsdzt/images/2.jpg";
+    var i=0;
+    function image()
+    {
+        var image=document.getElementById("image");
+        image.src=arr[i];
+        i++;
+        if(i>2){i=0};
+    };
+    setInterval(function(){
+        image();
+    },1000);
+</script>
+</html>

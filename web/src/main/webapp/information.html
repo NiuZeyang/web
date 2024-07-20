@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>NEFU</title>
+    <style type="text/css">
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            /* background-color: chartreuse; */
+        }
+
+        .head_1 {
+            width: 100%;
+            height: 100px;
+            padding: 8px 0px 4px;
+            background-color: #3d3bb8;
+            position: fixed;
+            /* border: 1px solid red; */
+        }
+
+        .content_1 {
+            width: 78%;
+            height: 100px;
+            margin: auto;
+            /* border: 1px solid red; */
+        }
+
+        .logo {
+            float: left;
+            padding-top: 8px;
+            width: 30%;
+            /* border: 1px solid red; */
+        }
+
+        .logo>img {
+            width: 100%;
+        }
+
+        .menu {
+            float: left;
+            width: 70%;
+            height: 100px;
+            /* border: 1px solid red; */
+        }
+
+        .menu_top,
+        .menu_foot {
+            float: left;
+            width: 100%;
+            height: 50%;
+        }
+
+        .search {
+            float: right;
+            width: 32%;
+            height: 70%;
+            border-radius: 18px;
+            background-color: #ffffff;
+        }
+
+        #search_border {
+            float: left;
+            font-size: 5px;
+            width: 72%;
+            height: 100%;
+            margin: 4% 0% 4% 9%;
+            border: none;
+        }
+
+        #search_button {
+            float: left;
+            width: 15px;
+            height: 15px;
+            margin: 4% 0% 4% 3%;
+            border: none;
+        }
+
+        .nav {
+            list-style: none;
+            margin: 1.5% auto 0%;
+        }
+
+        .nav>li {
+            float: left;
+            margin-left: 3.4%;
+            padding: 0% 0% 2%;
+            position: relative;
+        }
+
+        [class^="nav_"]>a {
+            color: #ffffff;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        [class^="nav_"]>a:hover {
+            opacity: 0.5;
+        }
+
+        [class^="child"] {
+            list-style: none;
+            top: 40px;
+            left: -40px;
+            position: absolute;
+            display: none;
+        }
+
+        [class^="child_2_"] {
+            left: 140.5px;
+            top: 0px;
+        }
+
+        .child_2_2 {
+            top: 50px;
+        }
+
+        [class^="child"]>li {
+            width: 120px;
+            height: 30px;
+            padding: 10px 10px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        [class^="child_2_"]>li {
+            width: 160px;
+        }
+
+        [class^="child"] a {
+            color: #000;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        [class^="child"] a:hover {
+            color: #3d3bb8;
+        }
+
+        li:hover>[class^="child"],
+        li:hover>[class^="block"] {
+            display: block;
+        }
+
+        .child_4 {
+            left: -55px;
+        }
+
+        .child_4>li {
+            width: 150px;
+        }
+
+        [class^="block"] {
+            border-bottom: 10px solid white;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            top: 30px;
+            left: 20px;
+            position: absolute;
+            display: none;
+        }
+
+        .banner_picture {
+            width: 100%;
+            height:500px;
+        }
+
+        .news_text {
+            float: left;
+            width: 100%;
+            height: 90px;
+            margin-top: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .news_text>span {
+            font-size: 40px;
+            color: #E9E9F9;
+            left: 165px;
+            top: 10px;
+            font-weight: bold;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .news_title {
+            font-size: 23px;
+            color: #000000;
+            left: 182px;
+            top: 32px;
+            position: absolute;
+        }
+
+        .under_line_1 {
+            background-color: #3d3bb8;
+            border-radius: 3px;
+            width: 60px;
+            height: 6px;
+            left: 195px;
+            top: 72px;
+            position: absolute;
+        }
+
+        .under_line_2 {
+            background-color: #3d3bb8;
+            border-radius: 3px;
+            margin: 1% auto 0%;
+            width: 60px;
+            height: 6px;
+        }
+
+        .section_2 {
+            /* background-color: aqua; */
+            float: left;
+            padding: 4% 12% 2%;
+            background-size: 62%;
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+
+        .section_2_left {
+            float: left;
+            width: 40%;
+            height: 100%;
+            /* background-color: coral; */
+        }
+
+        .section_2_left>img {
+            width: 100%;
+            margin-top: 75px;
+        }
+
+        .section_2_right {
+            float: left;
+            width: 60%;
+            height: 100%;
+            /* background-color: yellow; */
+        }
+
+        [class^="subject"] {
+            float: right;
+            height: 35px;
+            font-size: 20px;
+            color: #999999;
+            margin-left: 40px;
+            padding-bottom: 40px;
+        }
+
+        [class^="subject"]:hover {
+            color: #000000;
+        }
+
+        .subject_3 {
+            color: #000000;
+        }
+
+        .subject_2:hover~.subject_3 {
+            color: #999999;
+        }
+
+        .subject_1:hover~.subject_3 {
+            color: #999999;
+        }
+
+        [class^="box"] {
+            float: left;
+            width: 96%;
+            margin-left: 30px;
+            display: none;
+        }
+
+        [class^="box"][name="1_box"] {
+            display: block;
+        }
+
+        .section_2_right>.subject_2:hover~[class^="box"][name="1_box"] {
+            display: none;
+        }
+
+        .section_2_right>.subject_2:hover~[class^="box"][name="2_box"] {
+            display: block;
+        }
+
+        .section_2_right>.subject_1:hover~[class^="box"][name="1_box"] {
+            display: none;
+        }
+
+        .section_2_right>.subject_1:hover~[class^="box"][name="3_box"] {
+            display: block;
+        }
+
+        [class^="new_line"] {
+            float: left;
+            width: 100%;
+            margin-bottom: 18px;
+        }
+
+        a:hover .line_top {
+            color: #3d3bb8;
+        }
+
+        .line_left {
+            float: left;
+            width: 51px;
+            height: 73px;
+            color: #ffffff;
+            margin-bottom: 4px;
+            background-color: #3d3bb8;
+        }
+
+        .line_right {
+            float: left;
+            height: 75px;
+            margin-left: 20px;
+        }
+
+        .day {
+            margin: 6px 6px;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .year_month {
+            margin: 0px 3px;
+            text-align: center;
+            font-size: 5px;
+        }
+
+        .line_top {
+            float: left;
+            width: 90%;
+            height: 20px;
+            margin-left: 15px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #000;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .line_bottom {
+            float: left;
+            width: 90%;
+            height: 40;
+            font-size: 14px;
+            color: #666666;
+            margin-top: 17px;
+            margin-left: 15px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .more {
+            margin-top: 20px;
+            float: right;
+        }
+
+        .more>a {
+            color: #999999;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .more>a:hover {
+            color: #3d3bb8;
+        }
+
+        .section_3 {
+            float: left;
+            width: 100%;
+            height: 770px;
+            text-align: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .video_title {
+            margin-top: 35px;
+            color: #e9e9f9;
+            font-size: 25px;
+        }
+
+        .video_text {
+            font-size: 23px;
+            color: #000000;
+        }
+
+        .video_play {
+            width: 100%;
+            margin: 30px auto 0px;
+            padding-bottom: 20px;
+        }
+
+        .video_play>video {
+            width: 70%;
+            cursor: pointer;
+            object-fit: fill;
+        }
+
+    </style>
+</head>
+<body>
+<div class="head_1">
+    <div class="content_1">
+        <div class="logo">
+            <img src="https://ccec.nefu.edu.cn/images/logodouble.png" alt="logo">
+        </div>
+        <div class="menu">
+            <div class="menu_top">
+                <div class="search">
+                    <form action="">
+                        <input type="text" name="" id="search_border" placeholder="请输入搜索内容">
+                        <button id="search_button">
+                            <svg t="1679578244033" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="1044">
+                                <path
+                                        d="M418.91 93.09c179.66 0 325.82 146.16 325.82 325.82 0 74.59-24.74 144.9-71.53 203.33l-22.66 28.29-28.3 22.66c-58.43 46.8-128.74 71.53-203.33 71.53-179.66 0-325.82-146.16-325.82-325.82 0-179.65 146.16-325.81 325.82-325.81m0-93.09C187.55 0 0 187.55 0 418.91s187.55 418.91 418.91 418.91c99.01 0 189.83-34.54 261.53-91.97 0.34 0.37 0.45 0.86 0.81 1.21l263.3 263.3c9.09 9.09 21 13.63 32.91 13.63s23.82-4.54 32.91-13.63c18.18-18.18 18.18-47.65 0-65.82l-263.3-263.3c-0.36-0.36-0.85-0.46-1.21-0.81 57.43-71.7 91.97-162.52 91.97-261.53C837.82 187.55 650.27 0 418.91 0z"
+                                        fill="#2c2c2c" p-id="1045"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="menu_foot">
+                <ul class="nav">
+                    <li class="nav_1"><a href="/index.html">首页</a></li>
+                    <li class="nav_2">
+                        <a href="#">专业介绍</a>
+                        <div class="block_1"></div>
+                        <ul class="child_1">
+                            <li><a href="fangXiangJianJie.html">方向简介</a></li>
+                            <li><a href="zhuanYeJianJie.html">专业简介</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav_4">
+                        <a href="#">实验室</a>
+                        <div class="block_2"></div>
+                        <ul class="child_2">
+                            <li>
+                                <a href="#">拥有的实验室</a>
+                                <ul class="child_2_1">
+                                    <li><a href="923.html">923实验室</a></li>
+                                    <li><a href="925.html">925实验室</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_6"><a href="login.jsp">管理员登录</a></li>
+                    <li class="nav_7">
+                        <a href="#">教师队伍</a>
+                        <div class="block_3"></div>
+                        <ul class="child_3">
+                            <li><a href="jiaoshouList.html">教授</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav_9">
+                        <a href="#">就业指南</a>
+                        <div class="block_4"></div>
+                        <ul class="child_4">
+                            <li><a href="work.html">就业工作</a></li>
+                            <li><a href="information.html">就业信息</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section_1">
+    <img class="banner_picture" src="https://ccec.nefu.edu.cn/images/jyxx20241.jpg"width="500px" alt="二十大图片">
+</div>
+<div class="section_2">
+    <div class="section_2_left">
+        <a href="liLy.html"><img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.EnHsxvKmT5EQSmbTLengjgHaE7?w=253&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="学校大门"></a>
+        <div class="news_text">
+            <span>NEWS</span>
+            <div class="news_title">工作信息</div>
+            <div class="under_line_1"></div>
+        </div>
+    </div>
+    <div class="section_2_right">
+        <div class="subject_3">简介</div>
+        <div class="box_1" name="1_box">
+            【格力电器24届秋招-哈尔滨站】
+            格力电器2024届校招海量offer 正待发出💌，少年心事当拿云，意气飞扬斗志昂！梦想无关乎大小，加入格力，成为无可替代的你✨，用创造改变世界🌅！
+            【东北林业大学宣讲信息】
+            🕰宣讲时间：9月21日 14:00
+            🏛宣讲地点：锦绣T202
+            🚩不仅有优秀校友进行分享，还有精美礼品及面试直通卡放送，现场可收纸质简历哦～
+            💰薪资：硕士14-22k，本科9-14k
+            ✨员工福利：周末双休、人才公寓及过渡房、免费通勤班车、免费通讯电话卡、科技进步奖、健康体检、年休假、五险一金及各类津贴等
+            🚀板块方向：家用空调、商用空调、生活电器、芯片半导体、工业机器人、数控机床、精密模具、电机压缩机、核心零部件等
+            🌟需求专业：机械结构类、制冷暖通类、电机及电气类、自动化及控制类、电子类、计算机IT类、材料类等，更多专业详见网申职位。
+            【加入我们】
+            1⃣️关注“格力电器招聘”公众号—校园招聘—投递简历
+            2⃣️点击链接https://gree.m.zhiye.com/index.html网申
+            格力器期待你的加入！[玫瑰]
+            <br>
+            <br>
+            [爱心]京东方2024校园招聘·东北林业大学 专场宣讲会[爱心]
+
+
+
+            【时间】9月22日（周五）18:30
+
+            【地点】锦绣T201
+
+
+
+            🌟关于京东方（BOE）
+
+            • 全球半导体显示屏总出货量全球第一
+
+            • 全球显示五大细分领域出货量全球第一
+
+            • 2022年营收1784亿元
+
+            • 2022年盈利76亿元
+
+            • 集团自主专利申请数量8万余件
+
+            • 北京工作居住证、员工食堂、员工宿舍、六险两金、免费班车等
+
+            [勾引]招聘岗位
+
+            • 研发类、工程类、IT类、市场/营销类、供应链类、品质类、职能类、医疗类应有尽有！
+
+            [拥抱]工作地点
+
+            • 北京、合肥、成都、重庆、绵阳、苏州、南京、青岛、哈尔滨、珠海、福州、昆明、张家港等全国20+城市都有岗位！
+
+
+
+            🔜简历快速通道：campus.boe.com
+
+
+
+            🌟宣讲会现场接收纸质版简历，本轮哈尔滨站校招将安排线下面试，具体安排将在宣讲会现场通知。
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
