@@ -1,0 +1,1 @@
+基于东北林业大学软件工程专业设计的官网web课程设计。使用Servlet,MySQL,JSP,html,css和js技术实现前端展示和后端新闻管理。
